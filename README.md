@@ -1,0 +1,1 @@
+# install-1c-server-ubuntu
