@@ -1,7 +1,7 @@
 # Download 1C Fresh sources
 DISTRIB='fresh-install-64-8.3.10.2299'
 
-source /util.sh
+source util.sh
 
 message "install Curl"
 
