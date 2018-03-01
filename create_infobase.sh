@@ -40,19 +40,18 @@ echo "server:" $server
 # create infobase for solution
 $mrac infobase create --create-database --name=$base_name --dbms=PostgreSQL --db-server=$server --db-name=$base_name --locale=en_US --db-user=postgres --db-pwd=12345Qwerty --descr=$base_name --license-distribution=allow --cluster=$cluster >> infobase
 # retrieving base_name infobase id
-infobase2=$(cat infobase | cut -d':' -f 2 | cut -d' ' -f 2)
-echo $base_name ":" $infobase2
+infobase_id=$(cat infobase | cut -d':' -f 2 | cut -d' ' -f 2)
+echo $base_name ":" $infobase_id
 rm infobase
 # getting sumary 
 $mrac infobase summary list --cluster=$cluster
-$mrac infobase info --infobase=$infobase1 --cluster=$cluster
-$mrac infobase info --infobase=$infobase2 --cluster=$cluster
+$mrac infobase info --infobase=$infobase_id --cluster=$cluster
 
 message "publish Solution Infobase"
 
 sudo chmod o+w /etc/apache2/my_bases
 sudo cp conf/etc/apache2/my_bases/app.conf "/etc/apache2/my_bases/$base_name.conf"
-sudo sed -i "s/<--ibname-->/$base_name/g" "/etc/apache2/my_bases/base_name.conf"
+sudo sed -i "s/<--ibname-->/$base_name/g" "/etc/apache2/my_bases/$base_name.conf"
 sudo chmod o-w /etc/apache2/my_bases
 
 sudo mkdir -p /var/www/my_bases/$base_name/
@@ -61,7 +60,7 @@ sudo chmod o+w "/var/www/my_bases/$base_name"
 sudo cp conf/var/www/my_bases/default.vrd "/var/www/my_bases/$base_name/default.vrd"
 sudo sed -i "s/<--ibname-->/$base_name/g" "/var/www/my_bases/$base_name/default.vrd"
 sudo sed -i "s/<--server_name-->/$server/g" "/var/www/my_bases/$base_name/default.vrd"
-sudo chmod o-w "/var/www/1cfresh/a/$base_name"
+sudo chmod o-w "/var/www/my_bases/$base_name"
 
 message "Infobases are published"
 
