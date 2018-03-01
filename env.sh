@@ -151,7 +151,7 @@ message "Create conf file for tech journal"
 
 sudo mkdir -p /opt/1C/v8.3/x86_64/conf
 sudo chmod o+w /opt/1C/v8.3/x86_64/conf
-sudo cp /fresh-install/conf/opt/1C/v8.3/x86_64/conf/logcfg.xml /opt/1C/v8.3/x86_64/conf/
+sudo cp conf/opt/1C/v8.3/x86_64/conf/logcfg.xml /opt/1C/v8.3/x86_64/conf/
 sudo chmod o-w /opt/1C/v8.3/x86_64/conf/logcfg.xml
 
 message "Create folders for tech journal"
@@ -210,7 +210,7 @@ check_service_stat "haspd"
 message "Add wsap24 library to apache"
 
 sudo chmod o+w /etc/apache2/mods-enabled
-sudo cp /fresh-install/conf/etc/apache2/mods-enabled/wsap24.load /etc/apache2/mods-enabled/
+sudo cp conf/etc/apache2/mods-enabled/wsap24.load /etc/apache2/mods-enabled/
 sudo chmod o-w /etc/apache2/mods-enabled/wsap24.load
 
 # 1C Debug
