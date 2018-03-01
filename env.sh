@@ -27,7 +27,7 @@ set -e
 message "Set up the environment"
 
 message "Update packages"
-cd
+#cd
 sudo apt-get update -y
 
 # INSTALL APACHE, CREATE FOLDERS
