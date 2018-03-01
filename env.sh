@@ -196,15 +196,15 @@ if [ ! -e /etc/fonts/conf.d/10-autohint.conf ]; then
 fi
 
 # HASP
-message "Install HASP"
+#message "Install HASP"
 
-sudo apt-get -y install libc6:i386
-yes | sudo gdebi /fresh-install/hasp/haspd_7.40-eter10ubuntu_amd64.deb
+#sudo apt-get -y install libc6:i386
+#yes | sudo gdebi /fresh-install/hasp/haspd_7.40-eter10ubuntu_amd64.deb
 
-message "Start HASP and check status"
+#message "Start HASP and check status"
 
-sudo service haspd start
-check_service_stat "haspd"
+#sudo service haspd start
+#check_service_stat "haspd"
 
 # 1C WS
 message "Add wsap24 library to apache"
