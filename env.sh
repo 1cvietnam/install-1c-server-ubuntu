@@ -3,7 +3,7 @@
 # Declare the function that echoes messages
 # The first parameter is the message
 
-source /fresh-install/scripts/util.sh
+source util.sh
 
 # Check if $1 service is up and running
 # If servise is down the script will stop
@@ -53,7 +53,7 @@ sudo touch /etc/apache2/my_bases/empty.conf
 message "Set up default ports and ports that will be used for infobases"
 
 sudo chmod o+w /etc/apache2/ports.conf
-sudo cp /fresh-install/conf/etc/apache2/ports.conf /etc/apache2/
+sudo cp conf/etc/apache2/ports.conf /etc/apache2/
 sudo chmod o-w /etc/apache2/ports.conf
 
 message "Restart Apache and check status"
@@ -64,7 +64,7 @@ check_service_stat "apache2"
 # INSTALL POSTGRESQL
 message "Set locale and environment variable"
 
-sudo locale-gen en_US ru_RU ru_RU.UTF-8 
+sudo locale-gen en_US ru_RU ru_RU.UTF-8
 export LANG="ru_RU.UTF-8"
 
 message "Install Postgres (run one by one)"
